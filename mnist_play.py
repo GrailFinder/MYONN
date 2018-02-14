@@ -11,6 +11,16 @@ def get_mnist():
     
     return train_set, valid_set, test_set
 
+def get_local_mnist():
+    with open('mnist_train.csv') as lf:
+        train_set = lf.readlines()
+
+    with open('mnist_test.csv') as lf:
+        test_set = lf.readlines()
+
+    return train_set, test_set
+
+
 
 def show_digit(img, caption='', subplot=None):
     if subplot==None:
@@ -23,6 +33,5 @@ def show_digit(img, caption='', subplot=None):
 
 if __name__ == '__main__':
     train_set, *other_args = get_mnist()
-    print(len(train_set[0]))
     ran_num = [np.random.randint(0, len(train_set))]
     show_digit(train_set[0][ran_num], 'This is a {}'.format(train_set[1][ran_num]))

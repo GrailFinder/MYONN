@@ -15,7 +15,7 @@ class NeuralNetwork():
         # weights
         # input => hidden
         self.wih = np.random.normal(loc=0.0,
-         scale=pow(self.hid, -0.5),
+         scale=pow(self.inp, -0.5),
          size=(self.hid, self.inp))
 
         # hidden => output
@@ -46,13 +46,12 @@ class NeuralNetwork():
             (1.0 - hid_out)),
             np.array(inputs, ndmin=2)
             )
+        
+        return out_err
     
     def query(self, inputs):
         # calculates the output
         inputs = np.array(inputs, ndmin=2).T
-
-        # hidden
-        # input to hidden layer
         hidin = np.dot(self.wih, inputs)
         # output from hidden layer
         hidout = self.act_func(hidin)
