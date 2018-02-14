@@ -44,7 +44,7 @@ class NeuralNetwork():
             (hid_err * hid_out
             *
             (1.0 - hid_out)),
-            np.array(inputs, ndmin=2).T
+            np.array(inputs, ndmin=2)
             )
     
     def query(self, inputs):
