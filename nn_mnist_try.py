@@ -9,12 +9,9 @@ import seaborn as sns
 out = 10
 neun = NeuralNetwork(inp=784, hid=200, out=out, alpha=.1)
 
-#  get data
+#  get data and train on it
 train_set, valid_set, test_set = get_mnist()
-#train_set, test_set = get_local_mnist()
 
-
-# train
 epochs = 2
 train_err = []
 
@@ -44,7 +41,5 @@ for i in tqdm(range(len(inp))):
         score_history.append(0)
     
 
-sns.boxplot(data=train_err)
-plt.show()
 # calculate performance
 print(f"nn performance rate: {sum(score_history) / len(score_history)}")
