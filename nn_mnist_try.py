@@ -3,7 +3,6 @@ from mnist_play import get_mnist, get_local_mnist
 from tqdm import tqdm
 import numpy as np
 import matplotlib.pyplot as plt
-import seaborn as sns
 
 # nn for mnist data
 out = 10
@@ -43,3 +42,15 @@ for i in tqdm(range(len(inp))):
 
 # calculate performance
 print(f"nn performance rate: {sum(score_history) / len(score_history)}")
+
+# train_err hax nx10 shape
+plt.scatter(range(len(train_err)), [e[0] for e in train_err],
+ s=1, label=0)
+plt.scatter(range(len(train_err)), [e[1] for e in train_err],
+ s=1, label=1)
+plt.scatter(range(len(train_err)), [e[2] for e in train_err],
+ s=1, label=2)
+plt.scatter(range(len(train_err)), [e[3] for e in train_err],
+ s=1, label=3)
+plt.legend()
+plt.show()
